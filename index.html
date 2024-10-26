@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+<style>
+    /* #popuptext{
+    width: 800px;
+    background-color: bisque;
+} */
+    #categoriespopup,
+    .popuptext {
+        padding: 30px 0;
+        text-align: center;
+        position: fixed;
+        display: none;
+        color: rgb(83, 145, 134);
+        overflow: auto;
+        z-index: 999;
+        bottom: 70px;
+        left: 40%;
+        margin-top: 20px;
+        width: 20%;
+        background-color: white;
+        box-shadow: 1px 1px 5px rgb(162, 162, 162);
+    }
+
+    #categoriespopup li {
+        list-style: none;
+        padding: 10px;
+        font-size: 20px;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    #categoriespopup li:hover {
+        background-color: rgb(83, 145, 134);
+        color: white;
+    }
+
+    @media screen and (max-width:700px) {
+        #categoriespopup {
+            width: 100%;
+            padding: 30px 0;
+            text-align: center;
+            position: fixed;
+            display: none;
+            color: rgb(83, 145, 134);
+            z-index: 999;
+            bottom: 70px;
+            left: 40%;
+            margin-top: 20px;
+            width: 20%;
+            background-color: white;
+            box-shadow: 1px 1px 5px rgb(162, 162, 162);
+        }
+
+    }
+</style>
+
+<body>
+    <!-- ............................This is navigation bar............................ -->
+
+    <nav>
+        <div>
+            <div id="nav-id-1">
+                <span><img src="" alt=""></span>
+                <span>Home</span>
+                <span class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn"> Shop <svg xmlns="http://www.w3.org/2000/svg"
+                            width="15" height="15" fill="currentColor" class="bi bi-caret-down-fill"
+                            viewBox="0 0 15 15">
+                            <path
+                                d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                        </svg>
+                    </button>
+                    <span id="myDropdown" class="dropdown-content">
+                        <a href="#home">Recommended</a>
+                        <a href="#about">Trending</a>
+                        <a href="#contact">Furniture</a>
+                    </span>
+                </span>
+                <span>About us</span>
+            </div>
+            <div id="nav-id-2">
+                <span> login <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-person-circle" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                        <path fill-rule="evenodd"
+                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                    </svg></span>
+                <span> Cart <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-cart-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+                    </svg></span>
+                <span><input type="search" name="" id="" placeholder="search here..."></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ............................This is side navigation bar section............................ -->
+
+    <div id="navigation-bar">
+        <span style="font-size:30px;cursor:pointer;color:white;" class="opennav" onclick="openNav()">&#9776;</span>
+        <div id="mySidenav">
+            <div><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a></div>
+            <div><a href="#">Home</a></div>
+            <div><a href="#" onclick="myFunction1()" class="shop">Shop <svg xmlns="http://www.w3.org/2000/svg"
+                        width="15" height="15" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 15 15">
+                        <path
+                            d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
+                    </svg></a></div>
+            <div id="shop">
+                <div><a href="#">Trending</a></div>
+                <div><a href="#">Furniture</a></div>
+                <div><a href="#">Recommended</a></div>
+                <div><a href="#">Best deals</a></div>
+
+            </div>
+            <div><a href="#">About us</a></div>
+            <div><a href="#" class="glyphicon glyphicon-log-in">login</a></div>
+        </div>
+
+
+    </div>
+    <!-- ............................This is header section............................ -->
+
+    <section id="header">
+        <div id="section-1">
+            <div>
+                <h2>ABC Charpai</h2>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur sed magni beatae non quam
+                    harum incidunt laborum, molestias ea quidem? Eligendi deserunt accusamus optio fuga laborum nisi
+                    nihil modi iste.</p>
+                <button type="button" id="shop-button"><a href="">Shop</a></button>
+            </div>
+            <div><img src="/images/2_optimized_b11da6ee-abfe-4a00-a6c1-b5cf71b046c4.webp" alt=""></div>
+        </div>
+    </section>
+    <!-- ............................This is random button section............................ -->
+
+    <button id="categories" onclick="myCategories()" class="mycategory">
+        Categories
+    </button>
+
+    <span class="popuptext" id="categoriespopup">
+        <ul>
+            <li>What's new</li>
+            <li>Recommended</li>
+            <li>Furniture</li>
+            <li>Others</li>
+        </ul>
+    </span>
+    <script>
+        function myCategories() {
+            // window.onclick = function (event) {
+
+            var x = document.getElementById("categoriespopup");
+            if (x.style.display === "block") {
+                x.style.display = "none";
+            }
+            else {
+                x.style.display = "block";
+            }
+            // } 
+
+        }
+
+    </script>
+
+    <!-- ..................This is categories section.................... -->
+
+
+    <section id="categories-section">
+        <div>
+            <h2>Categories</h2>
+            <div class="categories">
+                <div>
+                    <h3>Recommended</h3>
+                </div>
+                <div>
+                    <div>
+                        <div><a href="#"><img src="/images/littcharpai.webp" alt=""></a></div>
+                        <div class="recommended">
+                            <div>
+                                <div><span>wooden khotla</span><br><span style="color: red;"> ₹4599 </span><span
+                                        style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                        ₹6999</span></div>
+                                <div><button id="buy"><a href="#"
+                                            style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                        style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                        No. of pairs</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                    adipisicing
+                                    elit. Iusto ab eveniet neque sint
+                                    nesciunt.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div><a href="#"><img src="/images/littcharpai.webp" alt=""></a></div>
+                        <div>
+                            <div class="recommended">
+                                <div>
+                                    <div><span>wooden khotla</span><br><span style="color: red;"> ₹4599 </span><span
+                                            style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                            ₹6999</span></div>
+                                    <div><button id="buy"><a href="#"
+                                                style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                            style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                            No. of pairs</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                        adipisicing
+                                        elit. Iusto ab eveniet neque sint
+                                        nesciunt.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <a href="#"><img src="/images/littcharpai.webp" alt=""></a>
+                        </div>
+                        <div>
+                            <div class="recommended">
+                                <div>
+                                    <div>
+                                        <span>wooden khotla</span>
+                                        <br>
+                                        <span style="color: red;"> ₹4599 </span>
+                                        <span
+                                            style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                            ₹6999</span>
+                                    </div>
+                                    <div>
+                                        <button id="buy">
+                                            <a href="#"
+                                                style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                            style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                            Out of stock</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                        adipisicing
+                                        elit. Iusto ab eveniet neque sint
+                                        nesciunt.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="categories">
+                    <div>
+                        <h3>Trending</h3>
+                    </div>
+                    <div>
+                        <div>
+                            <div><a href="#"><img src="/images/littcharpai.webp" alt=""></a></div>
+                            <div class="recommended">
+                                <div>
+                                    <div><span>wooden khotla</span><br><span style="color: red;"> ₹4599 </span><span
+                                            style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                            ₹6999</span></div>
+                                    <div><button id="buy"><a href="#"
+                                                style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                            style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                            No. of pairs</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                        adipisicing
+                                        elit. Iusto ab eveniet neque sint
+                                        nesciunt.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div><a href="#"><img src="/images/littcharpai.webp" alt=""></a></div>
+                            <div>
+                                <div class="recommended">
+                                    <div>
+                                        <div><span>wooden khotla</span><br><span style="color: red;"> ₹4599 </span><span
+                                                style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                                ₹6999</span></div>
+                                        <div><button id="buy"><a href="#"
+                                                    style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                                style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                                No. of pairs</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                            adipisicing
+                                            elit. Iusto ab eveniet neque sint
+                                            nesciunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <a href="#"><img src="/images/littcharpai.webp" alt=""></a>
+                            </div>
+                            <div>
+                                <div class="recommended">
+                                    <div>
+                                        <div>
+                                            <span>wooden khotla</span>
+                                            <br>
+                                            <span style="color: red;"> ₹4599 </span>
+                                            <span
+                                                style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                                ₹6999</span>
+                                        </div>
+                                        <div>
+                                            <button id="buy">
+                                                <a href="#"
+                                                    style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                                style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                                Out of stock</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                            adipisicing
+                                            elit. Iusto ab eveniet neque sint
+                                            nesciunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="categories">
+                    <div>
+                        <h3>Furniture</h3>
+                    </div>
+                    <div>
+                        <div>
+                            <div><a href="#"><img src="/images/littcharpai.webp" alt=""></a></div>
+                            <div>
+                                <div class="furniture">
+                                    <div>
+                                        <div><span>wooden khotla</span><br><span style="color: red;"> ₹4599 </span><span
+                                                style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                                ₹6999</span></div>
+                                        <div><button id="buy"><a href="#"
+                                                    style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                                style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                                No. of pairs</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                            adipisicing
+                                            elit. Iusto ab eveniet neque sint
+                                            nesciunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div><a href="#"><img src="/images/littcharpai.webp" alt=""></a></div>
+                            <div>
+                                <div class="furniture">
+                                    <div>
+                                        <div><span>wooden khotla</span><br><span style="color: red;"> ₹4599 </span><span
+                                                style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                                ₹6999</span></div>
+                                        <div><button id="buy"><a href="#"
+                                                    style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                                style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                                No. of pairs</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                            adipisicing
+                                            elit. Iusto ab eveniet neque sint
+                                            nesciunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div><a href="#"><img src="/images/littcharpai.webp" alt=""></a></div>
+                            <div>
+                                <div class="furniture">
+                                    <div>
+                                        <div><span>wooden khotla</span><br><span style="color: red;"> ₹4599 </span><span
+                                                style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                                ₹6999</span></div>
+                                        <div><button id="buy"><a href="#"
+                                                    style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                                style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                                No. of pairs</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                            adipisicing
+                                            elit. Iusto ab eveniet neque sint
+                                            nesciunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="categories">
+                    <div>
+                        <h3>Charpai</h3>
+                    </div>
+                    <div>
+                        <div>
+                            <div><a href="#"><img src="/images/s-l1600.png" alt=""></a></div>
+                            <div>
+                                <div class="charpai">
+                                    <div>
+                                        <div><span>wooden khotla</span><br><span style="color: red;"> ₹4599 </span><span
+                                                style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                                ₹6999</span></div>
+                                        <div><button id="buy"><a href="#"
+                                                    style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                                style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                                No. of pairs</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                            adipisicing
+                                            elit. Iusto ab eveniet neque sint
+                                            nesciunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div><a href="#"><img src="/images/s-l1600.png" alt=""></a></div>
+                            <div>
+                                <div class="charpai">
+                                    <div>
+                                        <div><span>wooden khotla</span><br><span style="color: red;"> ₹4599 </span><span
+                                                style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                                ₹6999</span></div>
+                                        <div><button id="buy"><a href="#"
+                                                    style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                                style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                                No. of pairs</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                            adipisicing
+                                            elit. Iusto ab eveniet neque sint
+                                            nesciunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div><a href="#"><img src="/images/s-l1600.png" alt=""></a></div>
+                            <div>
+                                <div class="charpai">
+                                    <div>
+                                        <div><span>wooden khotla</span><br><span style="color: red;"> ₹4599 </span><span
+                                                style="text-decoration: line-through; color: rgb(167, 166, 165); font-size: 14px;">
+                                                ₹6999</span></div>
+                                        <div><button id="buy"><a href="#"
+                                                    style="text-decoration: none; color: rgb(255, 255, 255); border-style: none;">Buy</a></button><br><span
+                                                style=" color: rgb(167, 166, 165); font-size: 14px;">
+                                                No. of pairs</span>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p style="color: rgb(129, 129, 128);">Lorem, ipsum dolor sit amet consectetur
+                                            adipisicing
+                                            elit. Iusto ab eveniet neque sint
+                                            nesciunt.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ............................This is location section............................ -->
+
+    <section id="location">
+        <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3485.2083089663947!2d76.68594597530844!3d29.12904567539724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390decd633fbace5%3A0x3bd10a0e48cbc111!2sJ.K.R.%20PUBLIC%20SCHOOL!5e0!3m2!1sen!2sin!4v1728987400916!5m2!1sen!2sin" width="100%" height="100%" allowfullscreen="full" loading="lazy"  onmouseover="bigImg(this)" onmouseout="normalImg(this)" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    <script>
+        function bigImg(x) {
+        //   x.style.height = "64px";
+        //   x.style.width = "64px";
+          x.innerHtml.text="jdnoszcjnxnjn dojcvnad"
+
+        }
+        
+        function normalImg(x) {
+        //   x.style.height = "32px";
+        //   x.style.width = "32px";
+        }
+        </script>
+
+</body>
+
+
+</html>
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+</script>
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.display = "block";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.display = "none";
+    }
+
+    $(document).ready(function () {
+        $(".shop").click(function () {
+            $("#shop").toggle();
+        });
+    });
+</script>
